@@ -4,7 +4,7 @@ require_once __DIR__ . "/../helpers/Validator.php";
 require_once __DIR__ . "/../models/User.php";
 
 class AuthController{
-    public static function register($data){
+    public function register($data){
         if(!Validator::required($data["name"] ?? null)){
             return Response::error("Name is required", 400);
         }
@@ -37,7 +37,7 @@ class AuthController{
         return Response::success("User registered successfully!", ["user_id" => $userId], 201);
     }
 
-    public static function login($data){
+    public function login($data){
 
         if(!Validator::required($data["email"] ?? null)){
             return Response::error("Email is required", 400);
@@ -68,7 +68,7 @@ class AuthController{
         ]);
     }
 
-    public static function logout(){
+    public function logout(){
         return Response::success("Logged out successfully");
     }
 }
