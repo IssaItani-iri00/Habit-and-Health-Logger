@@ -46,6 +46,32 @@ class User{
 
         return $result;
     }
+
+    public static function getAllUsers(){
+        global $conn;
+
+        $sql = "SELECT * FROM users";
+        $query = $conn -> prepare($sql);
+        $query -> execute();
+        $result = $query -> get_result();
+        $users = [];
+
+        while ($row = $result -> fetch_assoc()){
+            $users[] = $row;
+        }
+
+        return $users;
+    }
+
+    public static function deleteUserById($id){
+        global $conn;
+
+        $sql = "DELETE FROM users WHERE id = ?";
+        $query = $conn-> prepare($sql);
+        $query -> bind_param("i", $id);
+
+        return $query -> execute();
+    }
 }
 
 ?>
