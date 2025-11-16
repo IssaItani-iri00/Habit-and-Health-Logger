@@ -49,8 +49,9 @@ class Habit{
         $sql = "DELETE FROM habits WHERE id = ? AND user_id = ?";
         $query = $conn -> prepare($sql);
         $query -> bind_param("ii", $id, $user_id);
+        $query -> execute();
 
-        return $query -> execute();
+        return $query -> affected_rows > 0;
     }
 }
 

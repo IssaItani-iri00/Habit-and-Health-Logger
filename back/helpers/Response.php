@@ -9,7 +9,7 @@ class Response{
         ]);
     }
 
-    public static function success($data = null, $message = "Success", int $status = 200){
+    public static function success($message = "Success", int $status = 200, $data = null){
         $payload = ["message" => $message];
 
         if($data !== null){
