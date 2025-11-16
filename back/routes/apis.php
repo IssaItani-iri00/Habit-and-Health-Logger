@@ -9,6 +9,11 @@ $apis = [
     "/habits/all"            => ["controller" => "HabitController", "method" => "getAllUserHabits"],
     "/habits/delete"         => ["controller" => "HabitController", "method" => "deleteHabit"],
 
+    "/entries/create"        => ["controller" => "EntryController", "method" => "create"],
+    "/entries/all"           => ["controller" => "EntryController", "method" => "getEntriesByUser"],
+    "/entries/date"          => ["controller" => "EntryController", "method" => "getEntriesByDate"],
+    "/entries/delete"        => ["controller" => "EntryController", "method" => "deleteEntry"],
+
 
 
 ];
