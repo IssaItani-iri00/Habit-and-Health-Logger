@@ -34,7 +34,7 @@ class AuthController{
 
         $userId = User::create($data["name"], $data["email"], $hashedPassword);
 
-        return Response::success("User registered successfully!", ["user_id" => $userId], 201);
+        return Response::success("User registered successfully!", 201, ["user_id" => $userId]);
     }
 
     public function login($data){
@@ -60,7 +60,7 @@ class AuthController{
             return Response::error("Email or password are invalid", 401);
         }
 
-        return Response::success("LogIn Successful", [
+        return Response::success("LogIn Successful", 200, [
             "user_id" => $user["id"],
             "user_name" => $user["name"],
             "user_email" => $user["email"],
