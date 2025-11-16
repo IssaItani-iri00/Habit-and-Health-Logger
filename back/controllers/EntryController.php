@@ -1,12 +1,11 @@
 <?php
 require_once __DIR__ . "/../helpers/Response.php";
+require_once __DIR__ . "/../helpers/OpenAIClient.php";
 require_once __DIR__ . "/../helpers/Validator.php";
 require_once __DIR__ . "/../models/Entry.php";
 
 class EntryController{
-    public function create(){
-        $data = json_decode(file_get_contents("php://input"), true);
-
+    public function create($data){
         if(!Validator::required($data["user_id"] ?? null)){
             echo Response::error("User ID is required", 400);
             return;
@@ -25,13 +24,19 @@ class EntryController{
         $user_id = (int) $data["user_id"];
         $raw_text = $data["raw_text"];
         $entry_date = $data["entry_date"];
-        $walking_minutes = null;
-        $coffee_cups = null;
-        $sleep_time = null;
-        $sleep_duration_minutes = null;
-        $estimated_calories = null;
-        $meal_suggestion = null;
+        $ai = OpenAIClient::parseText($raw_text);
+
+        $walking_minutes = isset($ai["walking_minutes"]) ? (int) $ai["walking_minutes"] : null;
+        $coffee_cups = isset($ai["coffee_cups"]) ? (int) $ai["coffee_cups"] : null;
+        $sleep_time = $ai["sleep_time"] ?? null;
+        $sleep_duration_minutes = isset($ai["sleep_duration_minutes"]) ? (int) $ai["sleep_duration_minutes"] : null;
+        $estimated_calories = isset($ai["estimated_calories"]) ? (int) $ai["estimated_calories"] : null;
+        $meal_suggestion = $ai["meal_suggestion"] ?? null;
         $nutrition = null;
+
+        if(isset($ai["nutrition"]) && is_array($ai["nutrition"])){
+            $nutrition = json_encode($ai["nutrition"]);
+        }
 
         $entry = Entry::createEntry(
             $user_id,
@@ -51,7 +56,7 @@ class EntryController{
             return;
         }
 
-        echo Response::success("Entry created successfully",201, null);
+        echo Response::success("Entry created successfully",201, ["ai" => $ai]);
     }
 
     public function getEntriesByUser(){
