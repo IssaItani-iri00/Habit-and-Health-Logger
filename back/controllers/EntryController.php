@@ -16,14 +16,10 @@ class EntryController{
             return;
         }
 
-        if(!Validator::required($data["entry_date"] ?? null)){
-            echo Response::error("Entry date is required", 400);
-            return;
-        }
-
         $user_id = (int) $data["user_id"];
         $raw_text = $data["raw_text"];
-        $entry_date = $data["entry_date"];
+        //setting todays date automatically instead of manually adding it
+        $entry_date = date("Y-m-d");
         $ai = OpenAIClient::parseText($raw_text);
 
         $walking_minutes = isset($ai["walking_minutes"]) ? (int) $ai["walking_minutes"] : null;
