@@ -43,7 +43,7 @@ class AuthController{
             return Response::error("Email is required", 400);
         }
 
-        if(!Validator::email($data)){
+        if(!Validator::email($data["email"])){
             return Response::error("Invalid email format", 400);
         }
 
