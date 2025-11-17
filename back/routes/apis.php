@@ -14,6 +14,7 @@ $apis = [
     "/entries/date"          => ["controller" => "EntryController", "method" => "getEntriesByDate"],
     "/entries/delete"        => ["controller" => "EntryController", "method" => "deleteEntry"],
 
-
+    "/admin/all"             => ["controller" => "AdminController", "method" => "getAllUsers"],
+    "/admin/deleteUser"      => ["controller" => "AdminController", "method" => "deleteUser"]
 
 ];
