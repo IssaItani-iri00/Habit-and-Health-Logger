@@ -22,7 +22,7 @@ class EntryController{
         $entry_date = date("Y-m-d");
         $ai = OpenAIClient::parseText($raw_text);
 
-        $walking_minutes = isset($ai["walking_minutes"]) ? (int) $ai["walking_minutes"] : null;
+        $workout_minutes = isset($ai["workout_minutes"]) ? (int) $ai["workout_minutes"] : null;
         $coffee_cups = isset($ai["coffee_cups"]) ? (int) $ai["coffee_cups"] : null;
         $water_cups = isset($ai["water_cups"]) ? (int) $ai["water_cups"] : null;
         $sleep_time = $ai["sleep_time"] ?? null;
@@ -40,7 +40,7 @@ class EntryController{
             $user_id,
             $raw_text,
             $entry_date,
-            $walking_minutes,
+            $workout_minutes,
             $coffee_cups,
             $water_cups,
             $sleep_time,

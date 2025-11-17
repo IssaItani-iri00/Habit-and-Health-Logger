@@ -2,7 +2,7 @@
 
 class Entry{
     public static function createEntry($user_id, $raw_text, $entry_date,
-    $walking_minutes = null,
+    $workout_minutes = null,
     $coffee_cups = null,
     $sleep_time = null,
     $sleep_duration_minutes = null,
@@ -12,11 +12,11 @@ class Entry{
     ){
         global $conn;
 
-        $sql = "INSERT INTO entries (user_id, raw_text, entry_date, walking_minutes, coffee_cups, water_cups, sleep_time,
+        $sql = "INSERT INTO entries (user_id, raw_text, entry_date, workout_minutes, coffee_cups, water_cups, sleep_time,
         sleep_duration_minutes, mood, estimated_calories, meal_suggestion, nutrition) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $query = $conn -> prepare($sql);
-        $query -> bind_param("issiiisisiss", $user_id, $raw_text, $entry_date, $walking_minutes, $coffee_cups, $water_cups, $sleep_time,            $sleep_duration_minutes, $mood, $estimated_calories, $meal_suggestion, $nutrition);
+        $query -> bind_param("issiiisisiss", $user_id, $raw_text, $entry_date, $workout_minutes, $coffee_cups, $water_cups, $sleep_time, $sleep_duration_minutes, $mood, $estimated_calories, $meal_suggestion, $nutrition);
 
         return $query -> execute();
     }
