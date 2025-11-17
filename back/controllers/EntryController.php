@@ -28,8 +28,10 @@ class EntryController{
 
         $walking_minutes = isset($ai["walking_minutes"]) ? (int) $ai["walking_minutes"] : null;
         $coffee_cups = isset($ai["coffee_cups"]) ? (int) $ai["coffee_cups"] : null;
+        $water_cups = isset($ai["water_cups"]) ? (int) $ai["water_cups"] : null;
         $sleep_time = $ai["sleep_time"] ?? null;
         $sleep_duration_minutes = isset($ai["sleep_duration_minutes"]) ? (int) $ai["sleep_duration_minutes"] : null;
+        $mood = $ai["mood"] ?? null;
         $estimated_calories = isset($ai["estimated_calories"]) ? (int) $ai["estimated_calories"] : null;
         $meal_suggestion = $ai["meal_suggestion"] ?? null;
         $nutrition = null;
@@ -44,8 +46,10 @@ class EntryController{
             $entry_date,
             $walking_minutes,
             $coffee_cups,
+            $water_cups,
             $sleep_time,
             $sleep_duration_minutes,
+            $mood,
             $estimated_calories,
             $meal_suggestion,
             $nutrition

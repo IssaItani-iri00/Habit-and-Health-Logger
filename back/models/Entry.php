@@ -12,12 +12,11 @@ class Entry{
     ){
         global $conn;
 
-        $sql = "INSERT INTO entries (user_id, raw_text, entry_date, walking_minutes, coffee_cups, sleep_time,
-        sleep_duration_minutes, estimated_calories, meal_suggestion, nutrition) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO entries (user_id, raw_text, entry_date, walking_minutes, coffee_cups, water_cups, sleep_time,
+        sleep_duration_minutes, mood, estimated_calories, meal_suggestion, nutrition) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $query = $conn -> prepare($sql);
-        $query -> bind_param("issiisiiss", $user_id, $raw_text, $entry_date, $walking_minutes, $coffee_cups, $sleep_time, $sleep_duration_minutes,
-        $estimated_calories, $meal_suggestion, $nutrition);
+        $query -> bind_param("issiiisisiss", $user_id, $raw_text, $entry_date, $walking_minutes, $coffee_cups, $water_cups, $sleep_time,            $sleep_duration_minutes, $mood, $estimated_calories, $meal_suggestion, $nutrition);
 
         return $query -> execute();
     }
