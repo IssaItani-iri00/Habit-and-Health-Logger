@@ -1,7 +1,7 @@
 <?php 
-require_once("./helpers/Response.php");
-require_once(__DIR__ . "/db-configuration/db_connect.php");
-include (__DIR__ . "/routes/apis.php");
+require_once "./helpers/Response.php";
+require_once __DIR__ . "/db-configuration/db_connect.php";
+include __DIR__ . "/routes/apis.php";
 $base_dir = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
