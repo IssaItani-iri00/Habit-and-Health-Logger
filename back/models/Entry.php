@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/../db-configuration/db_connect.php";
 
 class Entry{
     public static function createEntry($user_id, $raw_text, $entry_date,

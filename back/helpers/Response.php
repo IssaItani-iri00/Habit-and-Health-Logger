@@ -3,10 +3,12 @@
 class Response{
 
     public static function json($data, int $status = 200){
-        return json_encode([
+        $result =json_encode([
             "status" => $status,
             "data" => $data
         ]);
+
+        return $result;
     }
 
     public static function success($message = "Success", int $status = 200, $data = null){
@@ -16,17 +18,21 @@ class Response{
             $payload["data"] = $data;
         }
 
-        return json_encode([
+        $result = json_encode([
             "status" => $status,
             "data" => $payload
         ]);
+
+        return $result;
     }
 
     public static function error($message = "Error", int $status = 400){
-        return json_encode([
+        $result = json_encode([
             "status" => $status,
             "error" => $message
         ]);
+
+        return $result;
     }
 }
 
