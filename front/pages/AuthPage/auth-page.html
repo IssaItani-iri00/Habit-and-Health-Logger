@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LogIn - Habit Logger</title>
+    <link rel = "stylesheet" href = "auth-page.css">
+</head>
+
+<body>
+    <div class = "auth-container">
+        <div class = "auth-card">
+            <h1>Habit and Health Logger</h1>
+            <div class = "login-register">
+                <button id = "loginTab" class = "tab active">Login</button>
+                <button id = "registerTab" class = "tab">SignUp</button>
+            </div>
+
+            <div id = "loginPanel" class = "panel visible">
+                <input type = "email" id = "loginEmail" placeholder = "Enter your email here">
+                <input type = "password" id = "loginPassword" placeholder = "Enter your password here">
+                <div id = "loginError" class = "error-message"></div>
+                <button id = "loginBtn" class = "login-register-btns">Login</button>
+            </div>
+
+            <div id = "registerPanel" class = "panel">
+                <input type = "text" id = "registerName" placeholder = "Enter your name here">
+                <input type = "email" id = "registerEmail" placeholder = "Enter your email here">
+                <input type = "password" id = "registerPassword" placeholder = "Enter your password here">
+                <div id = "registerError" class = "error-message"></div>
+                <button id = "registerBtn" class = "login-register-btns">SignUp</button>
+            </div>
+        </div>
+    </div>
+
+    <script src = "../../scripts/axios.min.js"></script>
+    <script src = "auth-page.js"></script>
+</body>
+
+
+</html>

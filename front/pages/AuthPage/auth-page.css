@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    background: #0d1117;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #f0f6fc;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-card {
+    background: #161b22;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.login-register {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background: #0d1117;
+    border: none;
+    color: #8b949e;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.tab.active {
+    background: #238636;
+    color: white;
+}
+
+.panel {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.panel.visible {
+    display: flex;
+}
+
+input {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 10px;
+    color: white;
+    border-radius: 6px;
+}
+
+button {
+    background: #238636;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.error-message {
+    background: #ff4444;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
