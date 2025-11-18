@@ -81,6 +81,6 @@ document.getElementById("registerBtn").onclick = async () => {
     }
     catch(err){
         console.error("Register error:", err);
-        error.textContent = err.response.data.message || "Server Error";
+        error.textContent = err.response?.data?.message || "Server Error";
     }
 };

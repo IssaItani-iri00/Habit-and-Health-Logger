@@ -8,27 +8,36 @@
     </head>
 
     <body>
-        <nav class="navbar">
-            <div class="nav-brand">
-                <img src="../../images/health-logo.png" alt="Habit Logger" class="nav-logo">
-                <span class="nav-title">Habit Logger</span>
+        <nav class = "navbar">
+            <div class = "nav-brand">
+                <img src = "../../images/health-logo.png" alt = "Habit Logger" class = "nav-logo">
+                <span class = "nav-title">Habit Logger</span>
             </div>
-            <div class="nav-links">
-                <a href="home-page.html" class="nav-link active">Home</a>
-                <a href="../HabitsPage/habits-page.html" class="nav-link">Habits</a>
+            <div class = "nav-links">
+                <a href = "home-page.html" class = "nav-link active">Home</a>
+                <a href = "../HabitsPage/habits-page.html" class = "nav-link">Habits</a>
             </div>
-            <div class="nav-user">
-                <img src="../../images/pfp-img.jpg" alt="User" class="user-avatar" id="userAvatar">
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <button class="dropdown-item" id="logoutBtn">Logout</button>
+            <div class = "nav-user">
+                <img src = "../../images/pfp-img.jpg" alt = "User" class = "user-avatar" id = "userAvatar">
+                <div class = "dropdown-menu" id = "dropdownMenu">
+                    <button class = "dropdown-item" id = "logoutBtn">Logout</button>
                 </div>
             </div>
         </nav>
 
-        <div class="content">
-            <h1 id="userGreeting" class = "user-greeting">Hello, User!</h1>
+        <div class = "content">
+            <h1 id = "userGreeting" class = "user-greeting"></h1>
+            <p class = "tagline">Log your day and get AI feedback and suggestions.</p>
+            
+            <div class = "entry-form">
+                <h2>Today's Log</h2>
+                <textarea id = "entryInput" class = "entry-input" placeholder = "e.g., walked 30 min, 2 coffees, slept at 11pm..."></textarea>
+                <div class = "error-message" id = "entryError"></div>
+                <button id = "submitEntry" class = "btn-submit">Log your Day</button>
+            </div>
         </div>
 
-        <script src="home-page.js"></script>
+        <script src = "../../scripts/axios.min.js"></script>
+        <script src = "home-page.js"></script>
     </body>
 </html>
