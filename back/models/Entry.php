@@ -5,8 +5,10 @@ class Entry{
     public static function createEntry($user_id, $raw_text, $entry_date,
     $workout_minutes = null,
     $coffee_cups = null,
+    $water_cups = null,
     $sleep_time = null,
     $sleep_duration_minutes = null,
+    $mood = null,
     $estimated_calories = null,
     $meal_suggestion = null,
     $nutrition = null
