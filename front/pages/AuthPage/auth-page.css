@@ -1,12 +1,12 @@
 body {
     margin: 0;
-    background: #0d1117;
+    background: #1A281C;
     font-family: Arial;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #f0f6fc;
+    color: white;
 }
 
 .auth-container {
@@ -34,21 +34,17 @@ h1 {
     flex: 1;
     padding: 10px;
     background: #0d1117;
-    border: none;
-    color: #8b949e;
-    cursor: pointer;
     border-radius: 8px;
 }
 
 .tab.active {
-    background: #238636;
-    color: white;
+    background: #44B144;
 }
 
 .panel {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .panel.visible {
@@ -64,7 +60,7 @@ input {
 }
 
 button {
-    background: #238636;
+    background: #44B144;
     border: none;
     padding: 10px;
     color: white;
@@ -86,3 +82,6 @@ button {
     display: block;
 }
 
+label{
+    display: flex;
+}
