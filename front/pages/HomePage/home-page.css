@@ -92,7 +92,7 @@ body {
 
 .content {
     padding: 40px;
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -164,4 +164,94 @@ body {
     font-size: 14px;
     margin: 5px 0;
     min-height: 20px;
+}
+
+.main-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.entry-section {
+    flex: 1;
+}
+
+.nutrition-coach {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.coach-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #161b22;
+    padding: 15px 20px;
+    border-radius: 12px;
+}
+
+.coach-icon {
+    font-size: 32px;
+    background: #44B144;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coach-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nutrition-card {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.nutrition-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    color: #787272;
+}
+
+.calorie-display {
+    font-size: 32px;
+    font-weight: bold;
+    color: #44B144;
+}
+
+.macro-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #30363d;
+}
+
+.macro-item:last-child {
+    border-bottom: none;
+}
+
+.macro-label {
+    font-size: 15px;
+    color: #787272;
+}
+
+.macro-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.suggestion-text {
+    color: white;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
 }

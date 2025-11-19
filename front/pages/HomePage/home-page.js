@@ -2,7 +2,7 @@ function checkAuth() {
     const user = localStorage.getItem("User");
     
     if (!user) {
-        // redirect to auth page if not logged in
+        // redirecting to auth page if not logged in
         window.location.href = "../AuthPage/auth-page.html";
         return;
     }
@@ -17,6 +17,67 @@ function toggleDropdown() {
 function logout() {
     localStorage.removeItem("User");
     window.location.href = "../AuthPage/auth-page.html";
+}
+
+async function loadTodayNutrition() {
+    const url = "http://localhost:8000";
+    const userData = JSON.parse(localStorage.getItem("User"));
+    const userId = userData.data.user_id;
+    // getting today's date and trimming it to get a date that matches the backend layout
+    // const today = new Date().toISOString().split('T')[0];
+    const today = "2025-11-20";
+    
+    try {
+        const res = await axios.post(`${url}/entries/date`, {
+            user_id: userId,
+            entry_date: today
+        });
+        
+        console.log("Nutrition response:", res.data);
+
+        const entries =res.data?.data?.data?.entries;
+
+        if (res.status === 200 && Array.isArray(entries) && entries.length > 0) {
+            const entry = entries[entries.length - 1];
+            console.log("Entry data:", entry);
+            updateNutritionDisplay(entry);
+        } else {
+            console.log("No entries found for today");
+        }
+    } catch (err) {
+        console.error("Failed to load nutrition data:", err);
+    }
+}
+
+function updateNutritionDisplay(entry) {
+    const calories = entry.estimated_calories || 0;
+    const calorieDisplay = document.getElementById("calorieDisplay");
+    calorieDisplay.textContent = `${calories} / 1850 kcal`;
+    
+    if (entry.nutrition) {
+        let nutrition;
+        try {
+            nutrition = typeof entry.nutrition === 'string' ? JSON.parse(entry.nutrition) : entry.nutrition;
+        } catch (e) {
+            console.error("Failed to parse nutrition data:", e);
+            return;
+        }
+        
+        const proteinValue = document.getElementById("proteinValue");
+        const carbsValue = document.getElementById("carbsValue");
+        const fatValue = document.getElementById("fatValue");
+        const suggestionText = document.getElementById("suggestionText");
+        
+        const protein = nutrition.protein || 0;
+        const carbs = nutrition.carbs || 0;
+        const fat = nutrition.fat || 0;
+        const suggestion = entry.meal_suggestion
+        
+        proteinValue.textContent = `${protein} / 120g`;
+        carbsValue.textContent = `${carbs} / 180g`;
+        fatValue.textContent = `${fat} / 60g`;
+        suggestionText.textContent = suggestion;
+    }
 }
 
 async function submitEntry() {
@@ -49,6 +110,9 @@ async function submitEntry() {
             entryInput.value = "";
             entryError.style.color = "#44B144";
             entryError.textContent = "Entry logged successfully!";
+            
+            // reloading nutrition data user logging an entry
+            await loadTodayNutrition();
             
             setTimeout(() => {
                 entryError.textContent = "";
@@ -90,5 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submitEntryBtn) {
             submitEntryBtn.addEventListener("click", submitEntry);
         }
+        
+        // Load today's nutrition data on page load
+        loadTodayNutrition();
     }
 });

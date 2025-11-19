@@ -27,13 +27,50 @@
 
         <div class = "content">
             <h1 id = "userGreeting" class = "user-greeting"></h1>
-            <p class = "tagline">Log your day and get AI feedback and suggestions.</p>
+            <p class = "tagline">Log your day and get personalized AI insights.</p>
             
-            <div class = "entry-form">
-                <h2>Today's Log</h2>
-                <textarea id = "entryInput" class = "entry-input" placeholder = "e.g., walked 30 min, 2 coffees, slept at 11pm..."></textarea>
-                <div class = "error-message" id = "entryError"></div>
-                <button id = "submitEntry" class = "btn-submit">Log your Day</button>
+            <div class = "main-layout">
+                <div class = "entry-section">
+                    <div class = "entry-form">
+                        <h2>Today's Log</h2>
+                        <textarea id = "entryInput" class = "entry-input" placeholder = "e.g., walked 30 min, 2 coffees, slept at 11pm..."></textarea>
+                        <div class = "error-message" id = "entryError"></div>
+                        <button id = "submitEntry" class = "btn-submit">Log your Day</button>
+                    </div>
+                </div>
+
+                <div class = "nutrition-coach">
+                    <div class = "coach-header">
+                        <img src = "" class = "coach-icon"></img>
+                        <span class = "coach-title">Today's AI Nutrition Coach</span>
+                    </div>
+                    
+                    <div class = "nutrition-card">
+                        <h3>Estimated Calories</h3>
+                        <div class = "calorie-display" id = "calorieDisplay">0 / 1850 kcal</div>
+                    </div>
+
+                    <div class = "nutrition-card">
+                        <h3>Macro-nutrient Snapshot</h3>
+                        <div class = "macro-item">
+                            <span class = "macro-label">Protein</span>
+                            <span class = "macro-value" id = "proteinValue">0 / 120g</span>
+                        </div>
+                        <div class = "macro-item">
+                            <span class = "macro-label">Carbs</span>
+                            <span class = "macro-value" id = "carbsValue">0 / 180g</span>
+                        </div>
+                        <div class = "macro-item">
+                            <span class = "macro-label">Fat</span>
+                            <span class = "macro-value" id = "fatValue">0 / 60g</span>
+                        </div>
+                    </div>
+
+                    <div class = "nutrition-card">
+                        <h3>Healthy Suggestions</h3>
+                        <p class = "suggestion-text" id = "suggestionText">Log your day to get personalized AI suggestions.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
