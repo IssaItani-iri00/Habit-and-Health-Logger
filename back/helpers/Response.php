@@ -1,16 +1,7 @@
 <?php
 
 class Response{
-
-    public static function json($data, int $status = 200){
-        $result =json_encode([
-            "status" => $status,
-            "data" => $data
-        ]);
-
-        return $result;
-    }
-
+    
     public static function success($message = "Success", int $status = 200, $data = null){
         $payload = ["message" => $message];
 

@@ -1,0 +1,256 @@
+body {
+    margin: 0;
+    background: #0b0e11;
+    font-family: Arial, sans-serif;
+    color: white;
+    min-height: 100vh;
+}
+
+.navbar {
+    background: #161b22;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    background-color: #44B144;
+}
+
+.nav-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #787272;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.nav-link.active {
+    color: white;
+    background: #44B144;
+}
+
+.nav-user {
+    position: relative;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #44B144;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    min-width: 150px;
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.content {
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.user-greeting {
+    font-size: 36px;
+    margin: 0 0 10px 0;
+}
+
+.tagline {
+    color: #787272;
+    font-size: 18px;
+    margin: 0 0 30px 0;
+}
+
+.entry-form {
+    background: #161b22;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.entry-form h2 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+}
+
+.entry-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 28);
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    resize: vertical;
+    min-height: 120px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.entry-input::placeholder {
+    color: #787272;
+}
+
+.entry-input:focus {
+    outline: none;
+    border-color: #44B144;
+}
+
+.btn-submit {
+    background: #44B144;
+    border: none;
+    padding: 12px 24px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-submit:disabled {
+    background: #787272;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 14px;
+    margin: 5px 0;
+    min-height: 20px;
+}
+
+.main-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.entry-section {
+    flex: 1;
+}
+
+.nutrition-coach {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.coach-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #161b22;
+    padding: 15px 20px;
+    border-radius: 12px;
+}
+
+.coach-icon {
+    font-size: 32px;
+    border: 2px solid #44B144;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coach-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.nutrition-card {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.nutrition-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    color: #787272;
+}
+
+.calorie-display {
+    font-size: 32px;
+    font-weight: bold;
+    color: #44B144;
+}
+
+.macro-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #30363d;
+}
+
+.macro-item:last-child {
+    border-bottom: none;
+}
+
+.macro-label {
+    font-size: 15px;
+    color: #787272;
+}
+
+.macro-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.suggestion-text {
+    color: white;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}

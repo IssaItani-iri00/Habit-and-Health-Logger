@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>EntriesPage</title>
+        <link rel = "stylesheet" href = "entries-page.css">
+    </head>
+
+    <body>
+        <nav class = "navbar">
+            <div class = "nav-brand">
+                <img src = "../../images/health-logo.png" alt = "Habit Logger" class = "nav-logo">
+                <span class = "nav-title">Habit Logger</span>
+            </div>
+            <div class = "nav-links">
+                <a href = "../HomePage/home-page.html" class = "nav-link">Home</a>
+                <a href = "entries-page.html" class = "nav-link active">Entries</a>
+            </div>
+            <div class = "nav-user">
+                <img src = "../../images/pfp-img.jpg" alt = "User" class = "user-avatar" id = "userAvatar">
+                <div class = "dropdown-menu" id = "dropdownMenu">
+                    <button class = "dropdown-item" id = "logoutBtn">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class = "content">
+            <h1 class = "page-title">Your Daily Entries</h1>
+            <div class = "entries-container" id = "entriesContainer">
+                
+            </div>
+        </div>
+
+        <script src = "../../scripts/axios.min.js"></script>
+        <script src = "entries-page.js"></script>
+    </body>
+</html>
