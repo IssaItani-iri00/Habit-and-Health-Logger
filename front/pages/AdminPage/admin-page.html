@@ -23,7 +23,29 @@
                 </div>
             </div>
         </nav>
-        <script src = "../..scripts/axios.min.js"></script>
+        <div class = "container">
+            <h1 class = "page-title">User Management</h1>
+            <div class = "table-container">
+                <table class = "users-table" id = "usersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "usersTableBody">
+                        <tr>
+                            <td colspan="5">Loading users...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script src = "../../scripts/axios.min.js"></script>
         <script src = "admin-page.js"></script>
     </body>
 </html>
