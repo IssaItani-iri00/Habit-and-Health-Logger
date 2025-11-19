@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const userAvatar = document.getElementById("userAvatar");
         if (userAvatar) {
-            userAvatar.addEventListener("click", toggleDropdown()); 
+            userAvatar.addEventListener("click", toggleDropdown); 
         }
 
         const logoutBtn = document.getElementById("logoutBtn");
