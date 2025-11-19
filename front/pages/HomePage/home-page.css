@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #1A281C;
+    background: #0b0e11;
     font-family: Arial, sans-serif;
     color: white;
     min-height: 100vh;
@@ -87,7 +87,6 @@ body {
     text-align: left;
     cursor: pointer;
     font-size: 14px;
-    transition: background 0.2s;
 }
 
 .content {
@@ -194,7 +193,7 @@ body {
 
 .coach-icon {
     font-size: 32px;
-    background: #44B144;
+    border: 2px solid #44B144;
     width: 48px;
     height: 48px;
     border-radius: 50%;

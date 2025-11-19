@@ -24,8 +24,8 @@ async function loadTodayNutrition() {
     const userData = JSON.parse(localStorage.getItem("User"));
     const userId = userData.data.user_id;
     // getting today's date and trimming it to get a date that matches the backend layout
-    // const today = new Date().toISOString().split('T')[0];
-    const today = "2025-11-20";
+    const today = new Date().toISOString().split('T')[0];
+    // const today = "2025-11-19";
     
     try {
         const res = await axios.post(`${url}/entries/date`, {
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const userAvatar = document.getElementById("userAvatar");
         if (userAvatar) {
-            userAvatar.addEventListener("click", (e) => {
+            userAvatar.addEventListener("click", () => {
                 toggleDropdown();
             });
         }
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
             submitEntryBtn.addEventListener("click", submitEntry);
         }
         
-        // Load today's nutrition data on page load
+        // loding today's nutrition data on page load
         loadTodayNutrition();
     }
 });
