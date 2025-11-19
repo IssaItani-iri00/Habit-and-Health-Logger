@@ -71,7 +71,7 @@ async function fetchUsers() {
         });
 
         console.log("Response:", res);
-
+        
         if (res.status === 200 && res.data.data?.data?.users) {
             displayUsers(res.data.data.data.users, user_id);
         } else {
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         if(logoutBtn){
             logoutBtn.addEventListener("click", logout);
         }
-        
+
         fetchUsers();
     }
 });

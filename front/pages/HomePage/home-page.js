@@ -35,7 +35,7 @@ async function loadTodayNutrition() {
         
         console.log("Nutrition response:", res.data);
 
-        const entries =res.data?.data?.data?.entries;
+        const entries =res.data.data.data.entries;
 
         if (res.status === 200 && Array.isArray(entries) && entries.length > 0) {
             const entry = entries[entries.length - 1];
@@ -111,7 +111,7 @@ async function submitEntry() {
             entryError.style.color = "#44B144";
             entryError.textContent = "Entry logged successfully!";
             
-            // reloading nutrition data user logging an entry
+            // reloading nutrition data after user logging an entry
             await loadTodayNutrition();
             
             setTimeout(() => {
