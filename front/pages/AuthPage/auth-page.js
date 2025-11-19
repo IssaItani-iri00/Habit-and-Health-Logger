@@ -47,8 +47,16 @@ document.getElementById("loginBtn").onclick = async () => {
             return;
         }
 
-        localStorage.setItem("User", JSON.stringify(res.data.data));
-        window.location.href = "../HomePage/home-page.html";
+        const userData = res.data.data.data;
+        localStorage.setItem("User", JSON.stringify(userData));
+
+        if(userData.user_role === "admin"){
+            window.location.href = "../AdminPage/admin-page.html";
+            return;
+        }
+        else{
+            window.location.href = "../HomePage/home-page.html";
+        }
     }
     catch(err){
         console.error("Login error:", err);

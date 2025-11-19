@@ -22,7 +22,7 @@ function logout() {
 async function loadTodayNutrition() {
     const url = "http://localhost:8000";
     const userData = JSON.parse(localStorage.getItem("User"));
-    const userId = userData.data.user_id;
+    const userId = userData.user_id;
     // getting today's date and trimming it to get a date that matches the backend layout
     const today = new Date().toISOString().split('T')[0];
     // const today = "2025-11-19";
@@ -94,7 +94,7 @@ async function submitEntry() {
     }
     
     const userData = JSON.parse(localStorage.getItem("User"));
-    const userId = userData.data.user_id;
+    const userId = userData.user_id;
     
     try {
         submitBtn.disabled = true;
@@ -134,15 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (userData) {
         const greetingElement = document.getElementById("userGreeting");
         if (greetingElement) {
-            const userName = userData.data.user_name || "User";
+            const userName = userData.user_name || "User";
             greetingElement.textContent = `Hello, ${userName}!`;
         }
 
         const userAvatar = document.getElementById("userAvatar");
         if (userAvatar) {
-            userAvatar.addEventListener("click", () => {
-                toggleDropdown();
-            });
+            userAvatar.addEventListener("click", toggleDropdown()); 
         }
 
         const logoutBtn = document.getElementById("logoutBtn");
