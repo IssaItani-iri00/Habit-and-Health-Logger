@@ -34,7 +34,12 @@ class AuthController{
 
         $userId = User::create($data["name"], $data["email"], $hashedPassword);
 
-        return Response::success("User registered successfully!", 201, ["user_id" => $userId]);
+        return Response::success("User registered successfully!", 201, [
+            "user_id" => $userId,
+            "user_name" => $data["name"],
+            "user_email" => $data["email"],
+            "user_role" => "user"
+        ]);
     }
 
     public function login($data){

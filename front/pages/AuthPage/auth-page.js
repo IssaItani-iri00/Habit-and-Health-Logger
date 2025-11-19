@@ -43,7 +43,7 @@ document.getElementById("loginBtn").onclick = async () => {
         console.log(res);
 
         if(res.status !== 200 || !res.data.data){
-            error.textContent = res.data?.error || "Login failed";
+            error.textContent = res.data.error || "Login failed";
             return;
         }
 
@@ -60,7 +60,7 @@ document.getElementById("loginBtn").onclick = async () => {
     }
     catch(err){
         console.error("Login error:", err);
-        error.textContent = err.response?.data?.message || "Server Error";
+        error.textContent = err.response.data.message || "Server Error";
     }
 };
 
@@ -84,11 +84,13 @@ document.getElementById("registerBtn").onclick = async () => {
             return;
         }
 
-        localStorage.setItem("User", JSON.stringify(res.data.data));
+        const userData = res.data.data.data;
+        console.log("Storing user data:", userData);
+        localStorage.setItem("User", JSON.stringify(userData));
         window.location.href = "../HomePage/home-page.html";
     }
     catch(err){
         console.error("Register error:", err);
-        error.textContent = err.response?.data?.message || "Server Error";
+        error.textContent = err.response.data.message || "Server Error";
     }
 };
